@@ -12,5 +12,6 @@ namespace OO_Labb2Apa
         public IPriorityInterface Priority { get; set; }
         public string StreetAdress { get; set; }
         public string Email { get; set; }
+
     }
 }
