@@ -5,6 +5,5 @@ namespace OO_Labb2Apa
     {
         string ProcessMessage();
         int ProcessPriority();
-        //hej
     }
 }
