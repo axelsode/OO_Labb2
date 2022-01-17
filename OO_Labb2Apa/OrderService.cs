@@ -17,8 +17,7 @@ namespace OO_Labb2Apa
             emailSender.SendMessage(order.Email,
                 "Your order has been shipped",
                 $"Your order with ID {order.ID} is expected to arrive within {order.Priority.ProcessMessage()}", order.ID
-                );
-            
+                );  
         }
     }
 }
