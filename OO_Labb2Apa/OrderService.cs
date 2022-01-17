@@ -9,12 +9,19 @@ namespace OO_Labb2Apa
 {
     public class OrderService
     {
-        IMessageSender emailSender = new EmailSender();
+        private readonly IMessageSender _messageSender;
+        private readonly ILogInterface _log;
+
+        public OrderService(IMessageSender messageSender, ILogInterface log )
+        {
+            _messageSender = messageSender;
+            _log = log;
+        }
 
         public void Process(Order order)
         {
-            emailSender.Log($"Started processing order {order.ID}");
-            emailSender.SendMessage(order.Email,
+            _log.Log($"Started processing order {order.ID}");
+            _messageSender.SendMessage(order.Email,
                 "Your order has been shipped",
                 $"Your order with ID {order.ID} is expected to arrive within {order.Priority.ProcessMessage()}", order.ID
                 );  

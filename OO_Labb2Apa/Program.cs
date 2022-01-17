@@ -7,7 +7,11 @@ namespace Application
     {
         static void Main(string[] args)
         {
-            OrderService orderService = new OrderService();
+            ILogInterface log = new Log();
+
+            EmailSender emailSender = new EmailSender(log);
+            
+            OrderService orderService = new OrderService(emailSender, log);
 
             orderService.Process(new Order
             {
